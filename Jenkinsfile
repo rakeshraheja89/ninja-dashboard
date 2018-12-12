@@ -16,7 +16,7 @@ stages {
   script {
         def mvnHome = tool 'maven-3'
         def javaHome = tool 'java8'
-        mvn clean install
+        sh 'mvn clean install'
     }
   }
  }
