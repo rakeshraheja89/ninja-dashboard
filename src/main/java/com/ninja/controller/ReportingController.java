@@ -20,6 +20,9 @@ public class ReportingController {
 	// inject via application.properties
 	@Value("${welcome.message:test}")
 	private String message = "Hello User ! application is running";
+	
+	@Value("${filePath}")
+	private String filePath;
 
 	@RequestMapping("/test")
 	public String welcome(Map<String, Object> model) {
@@ -29,7 +32,7 @@ public class ReportingController {
 
 	@RequestMapping("/download")
 	public Object displayData(Map<String, Object> model) {
-		List<ExchangeData> data = reportingSPI.downloadData();
+		List<ExchangeData> data = reportingSPI.downloadData(filePath);
 		model.put("data", data);
 		return model;
 	}
