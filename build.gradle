@@ -1,34 +1,34 @@
 buildscript {
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.0.5.RELEASE")
-        echo "Siva added comment"
-    }
+        ext {
+                springBootVersion = '1.5.7.RELEASE'
+        }
+        repositories {
+                mavenCentral()
+        }
+        dependencies {
+                classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        }
 }
 
 apply plugin: 'java'
 apply plugin: 'eclipse'
-apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
-apply plugin: 'io.spring.dependency-management'
+apply plugin: 'war'
 
-bootJar {
-    baseName = 'gs-rest-service'
-    version =  '0.1.0'
-}
+group = 'com.ninja'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
 
 repositories {
-    mavenCentral()
+        mavenCentral()
 }
 
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
+war {
+    baseName = 'ninja-dashboard'
+    version = '1.0.0'
+}
 
 dependencies {
-    compile("org.springframework.boot:spring-boot-starter-web")
-    testCompile('org.springframework.boot:spring-boot-starter-test')
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+        compile('org.springframework.boot:spring-boot-starter-web')
+        testCompile('org.springframework.boot:spring-boot-starter-test')
 }
