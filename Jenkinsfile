@@ -5,8 +5,7 @@ stages {
  steps {
  script {
     checkout scm
-     def mvnHome = tool 'maven-3'
-     def javaHome = tool 'java8'
+     def mvnHome = tool 'maven-3
      }
     }
    }
@@ -15,7 +14,6 @@ stages {
  steps {
   script {
         def mvnHome = tool 'maven-3'
-        def javaHome = tool 'java8'
         sh 'mvn clean install'
     }
   }
