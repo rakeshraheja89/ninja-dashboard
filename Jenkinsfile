@@ -5,7 +5,7 @@ stages {
  steps {
  script {
     checkout scm
-     def mvnHome = tool 'maven-3
+     def mvnHome = tool 'maven-3'
      }
     }
    }
