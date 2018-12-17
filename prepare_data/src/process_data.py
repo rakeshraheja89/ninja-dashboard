@@ -5,7 +5,8 @@ import calendar as cal
 import os
 
 
-m_df = pd.read_csv("E:\Project\Stock_data.csv")
+
+m_df = pd.read_csv("C:\\Users\\sivas\\Python Projects\\ninja-dashboard\\prepare_data\\data\\all_sentimet_fx.csv")
 
 m_df['Date'] = pd.to_datetime(m_df['Date'])
 
@@ -35,4 +36,4 @@ agg_df['CurrentPrice']=m_df.groupby('Stock').agg({'Close':'last'})
 
 agg_df['Gain'] = round((agg_df['CurrentPrice']*agg_df['No_of_shares']-agg_df['Bought']*agg_df['No_of_shares'])/(agg_df['Bought']*agg_df['No_of_shares'])*100,2)
 
-agg_df.to_csv("E:\Project\Stock_analysis.csv")
+agg_df.to_csv("C:\\Users\\sivas\\Python Projects\\ninja-dashboard\\prepare_data\\data\\stock_analysis_V1.csv")
